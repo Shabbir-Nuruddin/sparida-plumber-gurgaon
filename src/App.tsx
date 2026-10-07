@@ -206,7 +206,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="marquee mt-16 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+        <div className="marquee mt-16 overflow-hidden">
           <div className="marquee-track flex w-max gap-4">
             {[...REVIEWS, ...REVIEWS].map((q, i) => (
               <Slip key={i} quote={q} source={t.googleReview} className="w-[320px] shrink-0 sm:w-[360px]" />
@@ -291,7 +291,7 @@ export default function App() {
               </Suspense>
             </SceneBoundary>
           </div>
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,var(--color-night)_18%,transparent_62%)] md:bg-[linear-gradient(to_right,var(--color-night)_22%,transparent_60%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-night/55 md:bg-night/35" />
 
           <div className="pointer-events-none relative mx-auto flex h-full max-w-[1400px] flex-col justify-end px-4 pb-28 sm:px-8 md:justify-center md:pb-0 md:pt-20">
             <div className="pointer-events-auto max-w-[560px] [--cw:min(26px,calc((100vw-2rem-42px)/15))]">

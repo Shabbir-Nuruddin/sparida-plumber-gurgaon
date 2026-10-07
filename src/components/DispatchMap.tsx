@@ -100,16 +100,12 @@ export function DispatchMap({ lang, t }: { lang: Lang; t: { shopLabel: string; d
             <pattern id="g" width="27" height="28" patternUnits="userSpaceOnUse">
               <path d="M27 0H0V28" fill="none" stroke="rgb(255 255 255 / 0.05)" />
             </pattern>
-            <radialGradient id="halo">
-              <stop offset="0" stopColor="#42c6ff" stopOpacity="0.35" />
-              <stop offset="1" stopColor="#42c6ff" stopOpacity="0" />
-            </radialGradient>
           </defs>
           <rect width={W} height={H} fill="url(#g)" />
           {ROADS.map((r, i) => (
             <polyline key={i} points={r.map(([la, lo]) => proj(la, lo).join(",")).join(" ")} fill="none" stroke="rgb(200 200 196 / 0.2)" strokeWidth={i === 0 ? 5 : 3} strokeLinecap="round" strokeLinejoin="round" />
           ))}
-          <circle cx={sx} cy={sy} r={90} fill="url(#halo)" />
+          <circle cx={sx} cy={sy} r={60} fill="#42c6ff" fillOpacity={0.12} stroke="#42c6ff" strokeOpacity={0.35} strokeDasharray="4 6" />
           {AREAS.map((a) => {
             const [x, y] = proj(a.lat, a.lon);
             const on = a.id === id;

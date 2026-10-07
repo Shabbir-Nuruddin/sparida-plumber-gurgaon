@@ -327,7 +327,7 @@ function PanelsFeature({ f, lang, reduced, source }: P & { f: Extract<Feature, {
           <Rise key={i} reduced={reduced} delay={i * 0.1}>
             <figure className="group relative overflow-hidden rounded-[14px] border border-line">
               <img src={p.img} alt={p.label[lang]} loading="lazy" className="aspect-[3/4] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-[linear-gradient(to_top,rgb(17_18_19/0.95)_35%,transparent)] p-6 pt-24">
+              <figcaption className="absolute inset-x-3 bottom-3 rounded-[10px] bg-night/90 p-5 backdrop-blur-sm">
                 <span className="block font-display text-[clamp(1.8rem,3vw,2.4rem)] font-semibold uppercase leading-none">{p.label[lang]}</span>
                 <span className="mt-2 block text-[16px] leading-snug text-ink-2">{p.body[lang]}</span>
               </figcaption>
