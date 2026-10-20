@@ -72,7 +72,7 @@ export function WaButton({ label, text, className = "" }: { label: string; text:
 
 export function Slip({ quote, source, className = "" }: { quote: string; source: string; className?: string }) {
   return (
-    <figure className={`rounded-[14px] border border-line bg-panel/80 p-5 backdrop-blur-sm ${className}`}>
+    <figure className={`rounded-[14px] border border-line bg-panel p-5 ${className}`}>
       <div className="flex items-center gap-1 text-water" aria-label="5 stars">
         {[0, 1, 2, 3, 4].map((i) => (
           <Star key={i} size={14} weight="fill" />
@@ -123,8 +123,8 @@ export default function App() {
     document.documentElement.lang = lang;
   }, [lang]);
 
-  const enter = reduced ? { opacity: 0 } : { opacity: 0, y: 24, filter: "blur(10px)" };
-  const leave = reduced ? { opacity: 0 } : { opacity: 0, y: -16, filter: "blur(10px)" };
+  const enter = reduced ? { opacity: 0 } : { opacity: 0, y: 24 };
+  const leave = reduced ? { opacity: 0 } : { opacity: 0, y: -16 };
   const serviceSpans = spans(t.services.length);
   const pct = (n: number) => `${(n / TOTAL) * 100}%`;
 
@@ -281,7 +281,7 @@ export default function App() {
       </header>
 
       {/* dispatch stage: hero plus the three story beats share one sticky field */}
-      <section id="top" ref={stage} className="relative h-[420svh]">
+      <section id="top" ref={stage} className="relative h-[360svh]">
         <div className="sticky top-0 h-[100dvh] overflow-hidden">
           <div className="field absolute inset-0" />
           <div className="absolute inset-0">
@@ -299,7 +299,7 @@ export default function App() {
                 <span className="live-dot relative inline-block h-2 w-2 rounded-full bg-water text-water" />
                 {t.live}
               </div>
-              <div className="inline-flex flex-col gap-[5px] rounded-[10px] border border-line bg-night/70 p-2.5 backdrop-blur-sm">
+              <div className="inline-flex flex-col gap-[5px] rounded-[10px] border border-line bg-night/90 p-2.5">
                 <SplitFlapRow text={STATUSES[beat]} columns={15} />
                 <SplitFlapRow text={flap.text} columns={15} label={flap.label} />
               </div>
@@ -307,7 +307,7 @@ export default function App() {
               <div className="relative mt-7 min-h-[300px] md:min-h-[330px]">
                 <AnimatePresence mode="wait" initial={false}>
                   {beat === 0 ? (
-                    <motion.div key={`hero-${lang}`} initial={enter} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} exit={leave} transition={{ duration: 0.55, ease: EASE }}>
+                    <motion.div key={`hero-${lang}`} initial={enter} animate={{ opacity: 1, y: 0 }} exit={leave} transition={{ duration: 0.55, ease: EASE }}>
                       <h1 className="font-display text-[clamp(2.9rem,7vw,5.6rem)] font-bold uppercase leading-[0.9] tracking-[-0.01em] text-balance">
                         {t.heroTitle[0]}
                         <br />
@@ -321,7 +321,7 @@ export default function App() {
                       {fine && <p className="mt-6 hidden text-[13px] text-ink-3 md:block">{t.drag}</p>}
                     </motion.div>
                   ) : (
-                    <motion.div key={`beat-${beat}-${lang}`} initial={enter} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} exit={leave} transition={{ duration: 0.55, ease: EASE }}>
+                    <motion.div key={`beat-${beat}-${lang}`} initial={enter} animate={{ opacity: 1, y: 0 }} exit={leave} transition={{ duration: 0.55, ease: EASE }}>
                       <h2 className="font-display text-[clamp(2.5rem,6vw,4.8rem)] font-bold uppercase leading-[0.92] tracking-[-0.01em] text-balance">{t.beats[beat - 1].title}</h2>
                       <p className="mt-4 max-w-[42ch] text-[18px] leading-relaxed text-ink-2">{t.beats[beat - 1].body}</p>
                       <Slip quote={t.beats[beat - 1].quote} source={t.googleReview} className="mt-6 max-w-[400px]" />
@@ -364,7 +364,7 @@ export default function App() {
       </a>
 
       {/* mobile thumb bar */}
-      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-[1.4fr_1fr] gap-2 border-t border-line bg-night/90 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-[1.4fr_1fr] gap-2 border-t border-line bg-night/90 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden">
         <CallButton label={t.callShort} className="whitespace-nowrap !px-4 !py-3" />
         <a href={waLink(t.waHello)} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-wa py-3 text-[16px] font-semibold text-[#062a14] active:scale-[0.98]">
           <WhatsappLogo size={20} weight="fill" />

@@ -70,8 +70,8 @@ export function DispatchMap({ lang, t }: { lang: Lang; t: { shopLabel: string; d
         <div className="mt-10 flex items-end gap-4 border-t border-line pt-6">
           <motion.span
             key={id}
-            initial={reduced ? false : { opacity: 0, y: 12, filter: "blur(6px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={reduced ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="font-display text-[clamp(4rem,9vw,6rem)] font-semibold leading-[0.85] tabular-nums text-water"
           >
